@@ -5,6 +5,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.window.DialogProperties
 
 object DialogManager {
 
@@ -43,10 +44,10 @@ object DialogManager {
                     Text(text = stringResource(R.string.common__ok))
                 }
             },
-//            properties = DialogProperties(
-//                dismissOnBackPress = false,
-//                dismissOnClickOutside = false
-//            )
+            properties = DialogProperties(
+                dismissOnBackPress = false,
+                dismissOnClickOutside = false
+            )
         )
     }
 }
