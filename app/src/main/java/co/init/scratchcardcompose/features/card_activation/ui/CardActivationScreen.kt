@@ -18,9 +18,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import co.init.scratchcardcompose.DialogManager
 import co.init.scratchcardcompose.R
 import co.init.scratchcardcompose.ScratchCardSharedVM
+import co.init.scratchcardcompose.dialogManager.DialogManager
 import co.init.scratchcardcompose.errorManager.ErrorManager
 import co.init.scratchcardcompose.extensions.safe
 

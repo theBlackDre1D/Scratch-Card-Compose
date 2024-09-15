@@ -1,55 +1,54 @@
 package co.init.scratchcardcompose.dialogManager
 
-import android.app.AlertDialog
-import android.content.Context
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.window.DialogProperties
 import co.init.scratchcardcompose.R
 
 object DialogManager {
 
-    fun showSuccessOkDialog(
-        context: Context?,
-        message: String?,
-        onPositiveButtonClick: (() -> Unit)? = null
-    ) {
-        showOkDialog(
-            context = context,
-            title = context?.getString(R.string.common__success),
+    @Composable
+    fun SuccessOkAlertDialog(message: String, onDismiss: (() -> Unit)? = null) {
+        OkAlertDialog(
+            title = stringResource(R.string.common__success),
             message = message,
-            onPositiveButtonClick = onPositiveButtonClick
+            onDismiss = onDismiss
         )
     }
 
-    fun showErrorOkDialog(
-        context: Context?,
-        message: String?,
-        onPositiveButtonClick: (() -> Unit)? = null
-    ) {
-        showOkDialog(
-            context = context,
-            title = context?.getString(R.string.common__error),
+    @Composable
+    fun ErrorOkAlertDialog(message: String, onDismiss: (() -> Unit)? = null) {
+        OkAlertDialog(
+            title = stringResource(R.string.common__error),
             message = message,
-            onPositiveButtonClick = onPositiveButtonClick
+            onDismiss = onDismiss
         )
     }
 
-    private fun showOkDialog(
-        context: Context?,
-        title: String?,
-        message: String?,
-        onPositiveButtonClick: (() -> Unit)? = null
-    ) {
-        context?.let { nonNullContext ->
-            val builder = AlertDialog.Builder(nonNullContext)
-            builder.setTitle(title)
-            builder.setMessage(message)
-
-            builder.setPositiveButton(nonNullContext.getText(R.string.common__ok)) { dialog, _ ->
-                onPositiveButtonClick?.invoke()
-                dialog.dismiss()
-            }
-
-            val dialog = builder.create()
-            dialog.show()
-        }
+    @Composable
+    fun OkAlertDialog(title: String, message: String, onDismiss: (() -> Unit)? = null) {
+        AlertDialog(
+            onDismissRequest = {
+                onDismiss?.invoke()
+            },
+            title = { Text(text = title) },
+            text = { Text(text = message) },
+            confirmButton = { // 6
+                Button(
+                    onClick = {
+                        onDismiss?.invoke()
+                    }
+                ) {
+                    Text(text = stringResource(R.string.common__ok))
+                }
+            },
+            properties = DialogProperties(
+                dismissOnBackPress = false,
+                dismissOnClickOutside = false
+            )
+        )
     }
 }
