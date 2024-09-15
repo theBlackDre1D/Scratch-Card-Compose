@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Scratch Card Compose"
 include(":app")
-include(":common")

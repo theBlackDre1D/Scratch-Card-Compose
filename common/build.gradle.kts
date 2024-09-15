@@ -40,4 +40,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.coroutines)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 }

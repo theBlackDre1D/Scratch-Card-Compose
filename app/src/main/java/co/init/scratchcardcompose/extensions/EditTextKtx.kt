@@ -1,4 +1,4 @@
-package co.init.common.extensions
+package co.init.scratchcardcompose.extensions
 
 import android.text.Editable
 import android.text.TextWatcher

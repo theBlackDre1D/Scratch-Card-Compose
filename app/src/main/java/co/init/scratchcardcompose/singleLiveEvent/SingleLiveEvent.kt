@@ -1,4 +1,4 @@
-package co.init.common
+package co.init.scratchcardcompose.singleLiveEvent
 
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
