@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import co.init.scratchcardcompose.R
-import co.init.scratchcardcompose.ScratchCardSharedVM
 import co.init.scratchcardcompose.extensions.safe
+import co.init.scratchcardcompose.features.ScratchCardSharedVM
 
 @Composable
 fun CardScratchScreen(

@@ -20,8 +20,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import co.init.scratchcardcompose.R
-import co.init.scratchcardcompose.ScratchCardSharedVM
 import co.init.scratchcardcompose.extensions.navigateToPath
+import co.init.scratchcardcompose.features.ScratchCardSharedVM
 import co.init.scratchcardcompose.navigation.CardHomeNavigation
 
 @Composable

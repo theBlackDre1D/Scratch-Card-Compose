@@ -1,4 +1,4 @@
-package co.init.scratchcardcompose
+package co.init.scratchcardcompose.features
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

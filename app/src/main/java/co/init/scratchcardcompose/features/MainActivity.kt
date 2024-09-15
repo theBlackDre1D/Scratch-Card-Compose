@@ -1,4 +1,4 @@
-package co.init.scratchcardcompose
+package co.init.scratchcardcompose.features
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
