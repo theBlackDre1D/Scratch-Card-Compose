@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import co.init.scratchcardcompose.data.Card
-import co.init.scratchcardcompose.data.throwables.CanNotActivateCardThrowable
+import co.init.scratchcardcompose.errorManager.throwables.CanNotActivateCardThrowable
 import co.init.scratchcardcompose.extensions.doInCoroutine
 import co.init.scratchcardcompose.extensions.doInIOCoroutine
 import co.init.scratchcardcompose.extensions.safe

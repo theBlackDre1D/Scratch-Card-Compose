@@ -2,8 +2,8 @@ package co.init.scratchcardcompose.errorManager
 
 import android.content.Context
 import co.init.scratchcardcompose.R
-import co.init.scratchcardcompose.data.throwables.CanNotActivateCardThrowable
-import co.init.scratchcardcompose.data.throwables.FailedActivationThrowable
+import co.init.scratchcardcompose.errorManager.throwables.CanNotActivateCardThrowable
+import co.init.scratchcardcompose.errorManager.throwables.FailedActivationThrowable
 
 object ErrorManager {
 
