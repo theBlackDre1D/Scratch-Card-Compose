@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -26,7 +27,7 @@ import co.init.scratchcardcompose.navigation.CardHomeNavigation
 
 @Composable
 fun CardHomeScreen(navController: NavHostController, scratchCardSharedVM: ScratchCardSharedVM) {
-    val state = scratchCardSharedVM.scratchCardState
+    val state = scratchCardSharedVM.scratchCardState.collectAsState()
 
     Box(
         modifier = Modifier.fillMaxSize()

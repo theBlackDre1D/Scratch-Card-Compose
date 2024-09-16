@@ -12,6 +12,9 @@ import co.init.scratchcardcompose.features.card_activation.domain.ActivateScratc
 import co.init.scratchcardcompose.features.card_activation.domain.ScratchCardUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 
@@ -26,8 +29,8 @@ class ScratchCardSharedVM @Inject constructor(
         val loading: Boolean = false
     )
 
-    private val _scratchCardState = mutableStateOf<ScratchCardState?>(ScratchCardState())
-    val scratchCardState: State<ScratchCardState?> = _scratchCardState
+    private val _scratchCardState = MutableStateFlow<ScratchCardState?>(ScratchCardState())
+    val scratchCardState: StateFlow<ScratchCardState?> = _scratchCardState
 
     private val _activateCardResult = mutableStateOf<Result<Card>?>(null)
     val activateCardResult: State<Result<Card>?> = _activateCardResult
@@ -40,20 +43,22 @@ class ScratchCardSharedVM @Inject constructor(
 
         scratchCardJob = doInCoroutine {
             _scratchCardState.value?.card?.let { card ->
-                _scratchCardState.value = _scratchCardState.value?.copy(loading = true)
+                _scratchCardState.update { it?.copy(loading = true) }
 
                 scratchedCardUseCase(card).collect { result ->
-                    _scratchCardState.value = _scratchCardState.value?.copy(
-                        card = result.getOrNull(),
-                        loading = false
-                    )
+                    _scratchCardState.update {
+                        it?.copy(
+                            card = result.getOrNull(),
+                            loading = false
+                        )
+                    }
                 }
             }
         }
     }
 
     fun cancelScratch() {
-        _scratchCardState.value = _scratchCardState.value?.copy(loading = false)
+        _scratchCardState.update { it?.copy(loading = false) }
         scratchCardJob?.cancel()
     }
 
@@ -69,7 +74,7 @@ class ScratchCardSharedVM @Inject constructor(
                 if (card.canBeActivated) {
                     activateScratchedCardUseCase(card).collect { result ->
                         result.onSuccess { card ->
-                            _scratchCardState.value = _scratchCardState.value?.copy(card = card)
+                            _scratchCardState.update { it?.copy(card = card) }
                         }
                         _activateCardResult.value = result
                     }

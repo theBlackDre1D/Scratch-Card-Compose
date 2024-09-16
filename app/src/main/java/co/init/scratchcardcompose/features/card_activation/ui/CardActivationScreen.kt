@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -29,7 +30,7 @@ fun CardActivationScreen(
     scratchCardSharedVM: ScratchCardSharedVM
 ) {
 
-    val state = scratchCardSharedVM.scratchCardState
+    val state = scratchCardSharedVM.scratchCardState.collectAsState()
     val activateCardState = scratchCardSharedVM.activateCardResult
 
     Box(
