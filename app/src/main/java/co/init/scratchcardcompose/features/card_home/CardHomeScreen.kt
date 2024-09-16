@@ -65,7 +65,7 @@ fun CardHomeScreen(navController: NavHostController, scratchCardSharedVM: Scratc
         ) {
             Button(
                 onClick = {
-                    navController.navigateToPath(CardHomeNavigation.ScratchCard())
+                    navController.navigateToPath(CardHomeNavigation.ScratchCard)
                 },
             ) {
                 Text(text = stringResource(R.string.card_home__scratch_card))
@@ -73,7 +73,7 @@ fun CardHomeScreen(navController: NavHostController, scratchCardSharedVM: Scratc
 
             Button(
                 onClick = {
-                    navController.navigateToPath(CardHomeNavigation.ActivateCard())
+                    navController.navigateToPath(CardHomeNavigation.ActivateCard)
                 },
             ) {
                 Text(text = stringResource(R.string.card_home__activation_card))

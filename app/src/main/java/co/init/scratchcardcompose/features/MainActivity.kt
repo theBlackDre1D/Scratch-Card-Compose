@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import co.init.scratchcardcompose.extensions.composablePath
 import co.init.scratchcardcompose.features.card_activation.ui.CardActivationScreen
 import co.init.scratchcardcompose.features.card_home.CardHomeScreen
 import co.init.scratchcardcompose.features.card_scratch.CardScratchScreen
@@ -33,10 +33,10 @@ class MainActivity : ComponentActivity() {
                 ) { _ ->
                     val navController = rememberNavController()
 
-                    NavHost(navController = navController, startDestination = CardHomeNavigation.Home().path) {
-                        composable(CardHomeNavigation.Home().path) { CardHomeScreen(navController, scratchCardSharedVM) }
-                        composable(CardHomeNavigation.ScratchCard().path) { CardScratchScreen(scratchCardSharedVM) }
-                        composable(CardHomeNavigation.ActivateCard().path) { CardActivationScreen(scratchCardSharedVM) }
+                    NavHost(navController = navController, startDestination = CardHomeNavigation.Home.path) {
+                        composablePath(CardHomeNavigation.Home) { CardHomeScreen(navController, scratchCardSharedVM) }
+                        composablePath(CardHomeNavigation.ScratchCard) { CardScratchScreen(scratchCardSharedVM) }
+                        composablePath(CardHomeNavigation.ActivateCard) { CardActivationScreen(scratchCardSharedVM) }
                     }
                 }
             }
